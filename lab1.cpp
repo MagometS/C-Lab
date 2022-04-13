@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <cmath>
 
 using namespace std; 
@@ -19,25 +19,25 @@ int main()
 	return 0;
 }
 
-//Получает коэффициенты квадратного уравнения из потока ввода
+//РџРѕР»СѓС‡Р°РµС‚ РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РєРІР°РґСЂР°С‚РЅРѕРіРѕ СѓСЂР°РІРЅРµРЅРёСЏ РёР· РїРѕС‚РѕРєР° РІРІРѕРґР°
 void GetCoeff(double& a,double& b, double& c)
 {
-	cout << "Решение уравнения вида a*x^2 + b*x + c = 0\n\n";
-	cout << "Введите коэффициент a\n";
+	cout << "Р РµС€РµРЅРёРµ СѓСЂР°РІРЅРµРЅРёСЏ РІРёРґР° a*x^2 + b*x + c = 0\n\n";
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ a\n";
 	cin >> a;
-	cout << "Введите коэффициент b\n";
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ b\n";
 	cin >> b;
-	cout << "Введите коэффициент c\n";
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕСЌС„С„РёС†РёРµРЅС‚ c\n";
 	cin >> c;
 }
 
-//Находит дискриминант
+//РќР°С…РѕРґРёС‚ РґРёСЃРєСЂРёРјРёРЅР°РЅС‚
 double Discriminant(double a, double b, double c)
 {
 	return b * b - 4 * a * c;
 }
 
-//Находит корни
+//РќР°С…РѕРґРёС‚ РєРѕСЂРЅРё
 void FindRoots(double** x1, double** x2, double a, double b, double c)
 {
 	double d = Discriminant(a, b, c);
@@ -58,12 +58,12 @@ void FindRoots(double** x1, double** x2, double a, double b, double c)
 	}
 }
 
-//Выводит корни уравнения
+//Р’С‹РІРѕРґРёС‚ РєРѕСЂРЅРё СѓСЂР°РІРЅРµРЅРёСЏ
 void PrintResults(double* x1, double* x2)
 {
 	if (x1 == NULL)
 	{
-		cout << "нет действительных корней" << endl;
+		cout << "РЅРµС‚ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹С… РєРѕСЂРЅРµР№" << endl;
 		return;
 	}
 	if (*x1 == *x2)
@@ -74,7 +74,7 @@ void PrintResults(double* x1, double* x2)
 	cout << "x1 = " << *x1 << endl << "x2 = "<< *x2 << endl;
 }
 
-//Работа программы
+//Р Р°Р±РѕС‚Р° РїСЂРѕРіСЂР°РјРјС‹
 void SolveEquation()
 {
 	double a, b, c;
