@@ -5,34 +5,7 @@ template <class T1, class T2> bool isIntersecting(T1& A, T2& B) {
 	return (A.right() >= B.left()) && (A.left() <= B.right()) && (A.bottom() >= B.top()) && (A.top() <= B.bottom());
 }
 
-void testCollision(Ball& white, Ball& red) {
-	if (!isIntersecting(white, red)) {
-		return;
-	}
-
-	float overlapLeft = white.right() - red.left();
-	float overlapRight = red.right() - white.left();
-	float overlapTop = white.bottom() - red.top();
-	float overlapBottom = red.bottom() - white.top();
-
-	bool ballFromLeft(abs(overlapLeft) < abs(overlapRight));
-	bool ballFromTop(abs(overlapTop) < abs(overlapBottom));
-
-	float minOverlapX = ballFromLeft ? overlapLeft : overlapRight;
-	float minOverlapY = ballFromTop ? overlapTop : overlapBottom;
-
-	if (abs(minOverlapX) < abs(minOverlapY)) {
-		white.setXVelocity(ballFromLeft ? -abs(white.getVelocity().x) : abs(white.getVelocity().y));
-		red.setXVelocity(ballFromLeft ? abs(red.getVelocity().x) : -abs(red.getVelocity().y));
-	}
-	else {
-		white.setYVelocity(ballFromTop ? -abs(white.getVelocity().x) : abs(white.getVelocity().y));
-		red.setYVelocity(ballFromTop ? abs(red.getVelocity().x) : -abs(red.getVelocity().y));
-	}
-
-
-}
-void testCollision(Racket& racket, std::vector<Ball>& balls) {
+void Collission(Racket& racket, std::vector<Ball>& balls) {
 	for (auto& ball : balls) {
 		if (isIntersecting(racket, ball)) {
 			ball.setYVelocity(-ballVelocity);
@@ -46,7 +19,7 @@ void testCollision(Racket& racket, std::vector<Ball>& balls) {
 	}
 }
 
-void testCollision(Brick& brick, std::vector<Ball>& balls, Player& player) {
+void Collission(Brick& brick, std::vector<Ball>& balls, Player& player) {
 	for (auto& ball : balls) {
 		if (isIntersecting(brick, ball)) {
 			if (brick.getHealth() > 0) {
@@ -84,7 +57,7 @@ void testCollision(Brick& brick, std::vector<Ball>& balls, Player& player) {
 	}
 }
 
-void testCollision(Racket& racket, Bonus& bonus) {
+void Collission(Racket& racket, Bonus& bonus) {
 	if (!isIntersecting(racket, bonus)) {
 		return;
 	}
@@ -93,7 +66,7 @@ void testCollision(Racket& racket, Bonus& bonus) {
 	}
 }
 
-void testCollision(Brick& brick, MovingBrick& movingBrick) {
+void Collission(Brick& brick, MovingBrick& movingBrick) {
 	if (!isIntersecting(brick, movingBrick)) {
 		return;
 	}
@@ -116,7 +89,7 @@ void testCollision(Brick& brick, MovingBrick& movingBrick) {
 	}
 }
 
-void testCollision(MovingBrick& movingBrickFirst, MovingBrick& movingBrickSecond) {
+void Collission(MovingBrick& movingBrickFirst, MovingBrick& movingBrickSecond) {
 	if (!isIntersecting(movingBrickFirst, movingBrickSecond)) {
 		return;
 	}

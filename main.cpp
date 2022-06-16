@@ -95,41 +95,41 @@ int main()
 		}
 
 		for (auto& brick : standardBricks) {
-			testCollision(brick, bl, player);
+			Collission(brick, bl, player);
 			for (auto& movingBrick : movingBricks) {
-				testCollision(brick, movingBrick);
+				Collission(brick, movingBrick);
 			}
 		}
 
 		for (auto& brick : velocityBoostBricks) {
-			testCollision(brick, bl, player);
+			Collission(brick, bl, player);
 			for (auto& movingBrick : movingBricks) {
-				testCollision(brick, movingBrick);
+				Collission(brick, movingBrick);
 			}
 		}
 
 		for (auto& brick : indestructibleBricks) {
-			testCollision(brick, bl, player);
+			Collission(brick, bl, player);
 			for (auto& movingBrick : movingBricks) {
-				testCollision(brick, movingBrick);
+				Collission(brick, movingBrick);
 			}
 		}
 
 		for (auto& brick : strongerHealthBricks) {
-			testCollision(brick, bl, player);
+			Collission(brick, bl, player);
 			for (auto& movingBrick : movingBricks) {
-				testCollision(brick, movingBrick);
+				Collission(brick, movingBrick);
 			}
 		}
 		for (auto& movingBrick : movingBricks) {
-			testCollision(movingBrick, bl, player);
+			Collission(movingBrick, bl, player);
 			for (auto& innerMovingBrick : movingBricks) {
-				testCollision(movingBrick, innerMovingBrick);
+				Collission(movingBrick, innerMovingBrick);
 			}
 		}
 
 		for (int i = 0; i < bonusBlocks.size(); i++) {
-			testCollision(bonusBlocks[i], bl, player);
+			Collission(bonusBlocks[i], bl, player);
 			if (bonusBlocks[i].getStatus()) {
 				bonusBlocks[i].setFillColor(sf::Color::Black);
 				bonusBlocks[i].setPosition({ -100,-100 });
@@ -155,12 +155,12 @@ int main()
 		for (auto& ball : bl) {
 			ball.update(player);
 		}
-		testCollision(rack, bl);
+		Collission(rack, bl);
 		/*if (bl[1].getFillColor() == sf::Color::Red) {
 			testCollision(bl[0], bl[1]);
 		}*/
 		for (auto& bonus : bonuses) {
-			testCollision(rack, bonus);
+			Collission(rack, bonus);
 		}
 		window.clear();
 		for (auto& ball : bl) {
